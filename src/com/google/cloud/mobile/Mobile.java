@@ -1,5 +1,6 @@
 package com.google.cloud.mobile;
 
+<<<<<<< HEAD
 import com.google.api.client.googleapis.GoogleHeaders;
 import com.google.api.client.http.HttpContent;
 import com.google.api.client.http.HttpRequest;
@@ -12,14 +13,21 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+=======
+import com.google.cloud.frame.R;
+import java.io.File;
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import android.app.ListActivity;
 import android.content.Intent;
+<<<<<<< HEAD
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+=======
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,13 +36,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
+<<<<<<< HEAD
 public class Mobile extends ListActivity  {
+=======
+public class Mobile extends ListActivity {
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 
 	private List<FileOop> filesOop = new ArrayList<FileOop>();
 	private File currentDir = new File("/");
 
+<<<<<<< HEAD
 	private PicasaControl picasaControl = new PicasaControl();
 	
+=======
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,6 +85,7 @@ public class Mobile extends ListActivity  {
 			fillList(file.listFiles());
 		} else {
 			/* 打开文件 */
+<<<<<<< HEAD
 //			openFile(file);
 			
 			/*打开选择界面，选择上传到的文件目录*/
@@ -140,6 +156,13 @@ public class Mobile extends ListActivity  {
 		
 		
 	}
+=======
+			openFile(file);
+		}
+	}
+
+	/**/
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 
 	/* 浏览根目录 */
 	protected void broeseRoot() {
@@ -216,7 +239,10 @@ public class Mobile extends ListActivity  {
 		super.onListItemClick(l, v, position, id);
 
 		String selected_name = this.filesOop.get(position).getFileName();
+<<<<<<< HEAD
 		
+=======
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		/* 当单击的是刷新或返回上一级 */
 		if (selected_name.equals(getResources().getString(R.string.refresh))) {
 			browseFile(currentDir);
@@ -227,6 +253,7 @@ public class Mobile extends ListActivity  {
 			/* 浏览该文件夹下的内容 */
 			File clickedFile = new File(this.currentDir.getAbsolutePath()
 					+ selected_name);
+<<<<<<< HEAD
 //			browseFile(clickedFile);
 			////////////////////////////////////////////////////////////////暂改为上传/////////////////////////////
 			
@@ -280,6 +307,9 @@ public class Mobile extends ListActivity  {
 			}
 			
 		
+=======
+			browseFile(clickedFile);
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		}
 
 	}
@@ -357,9 +387,12 @@ public class Mobile extends ListActivity  {
 		return false;
 	}
 
+<<<<<<< HEAD
 	
 
 	
+=======
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		return super.onPrepareOptionsMenu(menu);

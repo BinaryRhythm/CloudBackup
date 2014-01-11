@@ -50,11 +50,16 @@ public class AlbumEntry extends Entry {
     	return (AlbumEntry) super.executePatchRelativeToOriginal(transport, original);
     	
     }
+<<<<<<< HEAD
 	/*增加相册*/
+=======
+	/**/
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
     public static AlbumEntry executeInsert(HttpTransport transport,AlbumEntry entry,String postLink) throws IOException {
     	return (AlbumEntry) Entry.executeInsert(transport, entry, postLink);
     }
     
+<<<<<<< HEAD
     /*删除相册*/
     public void executeDelete(HttpTransport transport) throws IOException {
     	super.executeDelete(transport);
@@ -68,5 +73,11 @@ public class AlbumEntry extends Entry {
     
     
     
+=======
+    /**/
+    public void executeDelete(HttpTransport transport) throws IOException {
+    	super.executeDelete(transport);
+    }
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 	
 }

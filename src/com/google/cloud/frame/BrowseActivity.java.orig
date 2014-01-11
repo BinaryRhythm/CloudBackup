@@ -1,5 +1,6 @@
 package com.google.cloud.frame;
 
+<<<<<<< HEAD
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.AlertDialog;
@@ -9,10 +10,26 @@ import android.app.TabActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+=======
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import com.google.cloud.docs.DocsControl;
+import com.google.cloud.mobile.Mobile;
+import com.google.cloud.picasa.PicasaControl;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.TabActivity;
+import android.content.DialogInterface;
+import android.content.Intent;
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+<<<<<<< HEAD
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TabHost;
@@ -32,6 +49,14 @@ public class BrowseActivity extends TabActivity {
 		return this.Str_Token;
 	}
 
+=======
+import android.widget.ListAdapter;
+import android.widget.TabHost;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+
+public class BrowseActivity extends TabActivity {
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -78,8 +103,15 @@ public class BrowseActivity extends TabActivity {
 		intent = new Intent().setClass(this, PicasaControl.class);
 		spec = choiceTab
 				.newTabSpec("Picasa")
+<<<<<<< HEAD
 				.setIndicator("Picasa",
 						this.getResources().getDrawable(R.drawable.picasa_icon))
+=======
+				.setIndicator(
+						"Picasa",
+						this.getResources().getDrawable(
+								R.drawable.picasa_icon))
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 				.setContent(intent);
 		choiceTab.addTab(spec);
 
@@ -87,6 +119,7 @@ public class BrowseActivity extends TabActivity {
 		intent = new Intent().setClass(this, DocsControl.class);
 		spec = choiceTab
 				.newTabSpec("Docs")
+<<<<<<< HEAD
 				.setIndicator("Docs",
 						this.getResources().getDrawable(R.drawable.docs_icon))
 				.setContent(intent);
@@ -253,6 +286,18 @@ public class BrowseActivity extends TabActivity {
 	}
 
 	/* 判断退出键 */
+=======
+				.setIndicator(
+						"Docs",
+						this.getResources().getDrawable(
+								R.drawable.docs_icon))
+				.setContent(intent);
+		choiceTab.addTab(spec);
+
+	}
+
+	/**/
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -286,17 +331,30 @@ public class BrowseActivity extends TabActivity {
 							}).show();
 			return true;
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		default:
 			return super.onKeyDown(keyCode, event);
 		}
 	}
 
+<<<<<<< HEAD
 	/* 销毁程序 */
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		System.exit(0);
 		// 或改用android.os.Process.killProcess(android.os.Process.myPid());
+=======
+	/**/
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		// 或改用System.exit(0);
+		android.os.Process.killProcess(android.os.Process.myPid());
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 	}
 
 }

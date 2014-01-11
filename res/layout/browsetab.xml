@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+<!-- Native Tab 的布局 -->
+	<LinearLayout android:id="@+id/tab_native"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		androidorientation="vertical">
+
+		<ListView android:id="@id/android:list"
+			android:layout_width="fill_parent" android:layout_height="fill_parent">
+		</ListView>
+
+	</LinearLayout>
+	<!-- SD Card Tab 的布局 -->
+	<!-- Docs Tab 的布局 -->
+	<!-- Picasa Tab 的布局 -->
+</FrameLayout> 

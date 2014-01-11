@@ -1,17 +1,29 @@
 package com.google.cloud.picasa;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+=======
+import com.google.cloud.frame.R;
+
+import java.io.IOException;
+import java.net.URL;
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+<<<<<<< HEAD
+=======
+import java.util.Map;
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 import java.util.MissingResourceException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+<<<<<<< HEAD
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -24,6 +36,12 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+=======
+//import android.R;
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.app.Activity;
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -43,6 +61,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
+<<<<<<< HEAD
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -61,10 +80,26 @@ import com.google.cloud.frame.BrowseActivity;
 import com.google.cloud.frame.R;
 import com.google.cloud.models.picasa.AlbumEntry;
 import com.google.cloud.models.picasa.AlbumFeed;
+=======
+import com.google.api.client.apache.ApacheHttpTransport;
+import com.google.api.client.googleapis.GoogleHeaders;
+import com.google.api.client.googleapis.GoogleTransport;
+import com.google.api.client.googleapis.auth.clientlogin.ClientLogin;
+import com.google.api.client.googleapis.auth.clientlogin.ClientLogin.Response;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.http.HttpResponseException;
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.util.DateTime;
+import com.google.api.client.xml.atom.AtomParser;
+import com.google.cloud.models.picasa.AlbumEntry;
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 import com.google.cloud.models.picasa.PhotoEntry;
 import com.google.cloud.models.picasa.PicasaUrl;
 import com.google.cloud.models.picasa.UserFeed;
 import com.google.cloud.models.picasa.Util;
+<<<<<<< HEAD
 
 public class PicasaControl extends ListActivity implements LoginControl {
 
@@ -90,6 +125,32 @@ public class PicasaControl extends ListActivity implements LoginControl {
 	private GoogleHeaders headers;
 	
 	HttpResponse response;
+=======
+import com.google.cloud.models.picasa.AlbumFeed;
+
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+
+public class PicasaControl extends ListActivity {
+
+	private static final String AUTH_TOKEN_TYPE = "lh2";
+	private static final String TAG = "PicasaControl";
+
+	private static final int MENU_ADD = Menu.FIRST;
+	private static final int MENU_ACCOUNTS = MENU_ADD + 1;
+
+	private static final int CONTEXT_EDIT = 0;
+	private static final int CONTEXT_DELETE = 1;
+	private static final int CONTEXT_LOGGING = 2;
+
+	private static final int REQUEST_AUTHENTICATE = 0;
+	private static final String PREF = "MyPrefs";
+	private static final int DIALOG_ACCOUNTS = 0;
+
+	private static HttpTransport transport;
+	private String authToken;// /////取值
+	private String postLink;
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 
 	private final List<AlbumEntry> albums = new ArrayList<AlbumEntry>();// /相册实体
 
@@ -103,7 +164,11 @@ public class PicasaControl extends ListActivity implements LoginControl {
 		HttpTransport.setLowLevelHttpTransport(ApacheHttpTransport.INSTANCE);
 		transport = GoogleTransport.create();
 		// ////添加必要部分的header
+<<<<<<< HEAD
 		headers = (GoogleHeaders) transport.defaultHeaders;
+=======
+		GoogleHeaders headers = (GoogleHeaders) transport.defaultHeaders;
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		headers.setApplicationName("CloudBackup-YTU-V1.0");
 		headers.gdataVersion = "2";
 
@@ -139,7 +204,11 @@ public class PicasaControl extends ListActivity implements LoginControl {
 
 					this.fileName = cursor.getString(cursor
 							.getColumnIndexOrThrow(Images.Media.DISPLAY_NAME));
+<<<<<<< HEAD
 					this.contentType = intent.getType(); // /////////////////////////////////取到的值
+=======
+					this.contentType = intent.getType();
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 					this.contentLength = cursor.getLong(cursor
 							.getColumnIndexOrThrow(Images.Media.SIZE));
 				}
@@ -147,10 +216,16 @@ public class PicasaControl extends ListActivity implements LoginControl {
 		}
 	}
 
+<<<<<<< HEAD
 	// //////为所有的transport加上auth header
 	private void authenticatedClientLogin(String auth) {
 		this.authToken = auth;
 		
+=======
+	private void authenticatedClientLogin(String auth) {
+		this.authToken = auth;
+		// //////为所有的transport加上auth header
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		((GoogleHeaders) transport.defaultHeaders).setGoogleLogin(authToken);
 		authenticated();
 	}
@@ -163,11 +238,16 @@ public class PicasaControl extends ListActivity implements LoginControl {
 			if (resultCode == RESULT_OK) {
 				gotAccount(false);
 			} else {
+<<<<<<< HEAD
 				showDialog(DIALOG_ACCOUNTS);
+=======
+				showDialog(DIALOG_ACCOUNTS);// ////
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 			}
 			break;
 		}
 	}
+<<<<<<< HEAD
 	/* 一运行程序即进行账户验证,必须先登录Google账户才能使用 */
 	@Override
 	protected Dialog onCreateDialog(int id, Bundle args) {
@@ -255,6 +335,53 @@ public class PicasaControl extends ListActivity implements LoginControl {
 		
 	}
 	
+=======
+
+	private void getAccount(final AccountManager manager, final Account account) {
+		// 多线程获取
+		SharedPreferences settings = getSharedPreferences(PREF, 0);
+		SharedPreferences.Editor editor = settings.edit();
+		editor.putString("accountName", account.name).commit();
+
+		try {
+			Bundle bundle = manager.getAuthToken(account, AUTH_TOKEN_TYPE,
+					true, null, null).getResult();
+			if (bundle.containsKey(AccountManager.KEY_INTENT)) {
+				Intent intent = bundle.getParcelable(AccountManager.KEY_INTENT);
+				int flags = intent.getFlags();
+				flags &= ~Intent.FLAG_ACTIVITY_NEW_TASK;
+				intent.setFlags(flags);
+				startActivityForResult(intent, REQUEST_AUTHENTICATE);
+			} else if (bundle.containsKey(AccountManager.KEY_AUTHTOKEN)) {
+				authenticatedClientLogin(bundle
+						.getString(AccountManager.KEY_AUTHTOKEN));
+			}
+		} catch (Exception e) {
+			handleException(e);
+			return;
+		}
+
+		// //////////////////////多线程错误
+		/*
+		 * new Thread() {
+		 * 
+		 * @Override public void run() { try { final Bundle bundle =
+		 * manager.getAuthToken(account, AUTH_TOKEN_TYPE, true, null,
+		 * null).getResult(); ////是UI Thread 直接运行，否则放入UI Thread 队列
+		 * runOnUiThread(new Runnable() { public void run() { try { if (bundle
+		 * .containsKey(AccountManager.KEY_INTENT)) { Intent intent = bundle
+		 * .getParcelable(AccountManager.KEY_INTENT); int flags =
+		 * intent.getFlags(); flags &= ~Intent.FLAG_ACTIVITY_NEW_TASK;////??
+		 * intent.setFlags(flags); ////启动一个新的Intent
+		 * startActivityForResult(intent, REQUEST_AUTHENTICATE); //为以上设置返回处理函数 }
+		 * else if (bundle .containsKey(AccountManager.KEY_AUTHTOKEN)) {
+		 * authenticatedClientLogin(bundle
+		 * .getString(AccountManager.KEY_AUTHTOKEN)); } } catch (Exception e) {
+		 * handleException(e); } } }); } catch (Exception e) {
+		 * handleException(e); } } }.start();
+		 */
+	}
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 
 	private void gotAccount(boolean token) {
 		// SharedPreference
@@ -313,6 +440,10 @@ public class PicasaControl extends ListActivity implements LoginControl {
 			}
 			int numAlbums = albums.size();
 			/* 写入Map中 */
+<<<<<<< HEAD
+=======
+			
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 
 			for (int t = 0; t < numAlbums; t++) {
 				HashMap<String, Object> item = new HashMap<String, Object>();
@@ -329,9 +460,14 @@ public class PicasaControl extends ListActivity implements LoginControl {
 		}
 
 		SimpleAdapter adapter = new SimpleAdapter(this, items,
+<<<<<<< HEAD
 				R.layout.list_albums, new String[] { "Folder", "AlbumName",
 						"PhotoNum" }, new int[] { R.id.img_album,
 						R.id.textview_album_name, R.id.textview_photo_num });
+=======
+				R.layout.list_albums, new String[] {"Folder","AlbumName", "PhotoNum" },
+				new int[] {R.id.img_album, R.id.textview_album_name, R.id.textview_photo_num });
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		setListAdapter(adapter);
 
 	}
@@ -339,7 +475,11 @@ public class PicasaControl extends ListActivity implements LoginControl {
 	// 登录设置// 获取、设置当前的登录状态,并存储
 	private void setLogging(boolean logging) throws MissingResourceException {
 
+<<<<<<< HEAD
 		Logger.getLogger("com.google.cloud.client").setLevel(
+=======
+		Logger.getLogger("com.google.api.client").setLevel(
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 				logging ? Level.CONFIG : Level.OFF);
 		SharedPreferences settings = getSharedPreferences(PREF, 0);
 
@@ -351,6 +491,7 @@ public class PicasaControl extends ListActivity implements LoginControl {
 		}
 	}
 
+<<<<<<< HEAD
 	/*把图片转成二进制字节流*/
 	public byte[] imgToBinary(String filePath) {
 		// Bitmap img = Bitmap.createBitmap(src);
@@ -383,6 +524,8 @@ public class PicasaControl extends ListActivity implements LoginControl {
 		return bs.toString().getBytes();
 	}
 
+=======
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 	// 处理异常
 	private void handleException(Exception e) {
 		e.printStackTrace();
@@ -421,9 +564,14 @@ public class PicasaControl extends ListActivity implements LoginControl {
 		 */
 	}
 
+<<<<<<< HEAD
 	/////////////////////////////////////////////////////////可不要???
 	private void authenticated() {
 		// /post消息,并处理request
+=======
+	private void authenticated() {
+		// /post消息，并处理request
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		if (sendData != null) {
 			try {
 				if (sendData.fileName != null) {
@@ -467,19 +615,31 @@ public class PicasaControl extends ListActivity implements LoginControl {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		SharedPreferences settings = getSharedPreferences(PREF, 0);
 		setLogging(settings.getBoolean("logging", false));// /将是否登陆设为否
 
 		/* 是否允许使用Text 过滤,在Listview前面显示一透明的Text，用于输入快速查找 */
 		this.getListView().setTextFilterEnabled(true);
 
+<<<<<<< HEAD
 		registerForContextMenu(getListView());// /注册上下文菜单
+=======
+		registerForContextMenu(getListView());///注册上下文菜单
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 
 		Intent intent = getIntent();
 
 		if (Intent.ACTION_SEND.equals(intent.getAction())) {
+<<<<<<< HEAD
 			sendData = new SendData(intent, getContentResolver()); // //？？
+=======
+			sendData = new SendData(intent, getContentResolver());  ////？？
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		} else if (Intent.ACTION_MAIN.equals(getIntent().getAction())) {
 			sendData = null;// /////////////////////////////执行此步
 		}
@@ -520,6 +680,7 @@ public class PicasaControl extends ListActivity implements LoginControl {
 
 	}
 
+<<<<<<< HEAD
 	/* 照片上传 */
 	public void upload(String path) {
 
@@ -598,11 +759,14 @@ public class PicasaControl extends ListActivity implements LoginControl {
 
 	}
 
+=======
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 	/* 菜单的选择响应 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case MENU_ADD: // ///////增加相册
+<<<<<<< HEAD
 			/*
 			 * AlbumEntry album = new AlbumEntry(); album.access = "private";
 			 * album.entry_title = "New Album" + new DateTime(new Date()); try {
@@ -620,6 +784,17 @@ public class PicasaControl extends ListActivity implements LoginControl {
 
 			upload("/sdcard/avatar.jpg");
 
+=======
+
+			AlbumEntry album = new AlbumEntry();
+			album.access = "private";
+			album.entry_title = "New Album" + new DateTime(new Date());
+			try {
+				AlbumEntry.executeInsert(transport, album, this.postLink);
+			} catch (IOException e) {
+				handleException(e);
+			}
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 			executeRefreshAlbums();
 			return true;
 		case MENU_ACCOUNTS:// ///换账户
@@ -687,7 +862,10 @@ public class PicasaControl extends ListActivity implements LoginControl {
 		 * albums.clear(); GET
 		 * http://picasaweb.com/data/feed/api/user/userID/albumid/albumID
 		 */
+<<<<<<< HEAD
 
+=======
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 		// 写个函数刷新每个相册
 
 		displayPhotos(id);
@@ -719,7 +897,11 @@ public class PicasaControl extends ListActivity implements LoginControl {
 
 	}
 
+<<<<<<< HEAD
 	/* 上下文菜单 */
+=======
+	// /////////////////////
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
@@ -770,6 +952,7 @@ public class PicasaControl extends ListActivity implements LoginControl {
 		return false;
 	}
 
+<<<<<<< HEAD
 	/*
 	 * POSt
 	 * https://picasaweb.google.com/data/feed/api/user/userID/albumid/albumID
@@ -816,4 +999,6 @@ public class PicasaControl extends ListActivity implements LoginControl {
 	 * null; } }
 	 */
 
+=======
+>>>>>>> dd48d6e52d812ee38945a788183d037f88d3054b
 }
