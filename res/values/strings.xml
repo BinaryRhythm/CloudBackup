@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, MainUI!</string>
+    <string name="app_name">CloudBackup</string>
+    
+    <!-- 用到的判断文件类型的数组 -->
+	<array name="fileEndingImage">
+		<item>.png</item>
+		<item>.jpeg</item>
+		<item>.gif</item>
+		<item>.jpg</item>
+		<item>.bmp</item>
+	</array>
+	<array name="fileEndingAudio">
+		<item>.mp3</item>
+		<item>.wav</item>
+		<item>.ogg</item>
+		<item>.midi</item>
+		<item>.wma</item>
+	</array>
+	<array name="fileEndingVideo">
+		<item>.mp4</item>
+		<item>.rmvb</item>
+		<item>.mpg</item>
+		<item>.avi</item>
+		<item>.mpeg</item>
+	</array>
+	<array name="fileEndingPackage">
+		<item>.jar</item>
+		<item>.zip</item>
+		<item>.rar</item>
+		<item>.gz</item>
+	</array>
+
+	<array name="fileEndingText">
+		<item>.htm</item>
+		<item>.html</item>
+		<item>.php</item>
+		<item>.txt</item>
+		<item>.doc</item>
+	</array>
+    
+    <!-- 文件管理中用到的目录字符串 -->
+<string name="root_dir">./</string>
+<string name="refresh">Refresh</string>
+<string name="up_one_level">..Up Level</string>
+    
+</resources>

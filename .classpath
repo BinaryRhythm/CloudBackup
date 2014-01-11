@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="lib" path="F:/java/eclipse/android/CloudBackup1.0/Exjars/google-api-client-1.1.1-alpha.jar" sourcepath="F:/java/eclipse/android/CloudBackup1.0/Exjars/google-api-client-1.1.1-alpha.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/F:/java/eclipse/android/CloudBackup1.0/ExJars/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

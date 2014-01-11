@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<Button android:text="Backup Settings" android:layout_height="wrap_content"
+		android:id="@+id/btn_settings" android:layout_width="wrap_content"></Button>
+	<Button android:layout_width="wrap_content" android:text="Backup SMS"
+		android:layout_height="wrap_content" android:id="@+id/btn_sms"></Button>
+	<Button android:layout_width="wrap_content" android:text="Button"
+		android:layout_height="wrap_content" android:id="@+id/button3"></Button>
+	<RelativeLayout android:layout_width="match_parent"
+		android:id="@+id/relativeLayout1" android:layout_height="wrap_content">
+		<Button android:text="Button" android:id="@+id/button4"
+			android:layout_alignParentLeft="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></Button>
+		<Button android:text="Button" android:id="@+id/button5"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"></Button>
+	</RelativeLayout>
+</LinearLayout>

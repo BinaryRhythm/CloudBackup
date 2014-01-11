@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.ytu.google.cloud.frame"
+      
+      android:versionCode="1"
+      android:versionName="1.0">
+      
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"
+    android:permissionGroup="android.permission-group.COST_MONEY"
+    android:protectionLevel="dangerous"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+    
+    
+    <application android:icon="@drawable/google" android:label="@string/app_name"
+    android:debuggable="true">
+        <activity android:name=".MainUI"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+<activity android:name="com.ytu.google.cloud.mobile.Mobile"></activity>
+<activity android:name="com.ytu.google.cloud.docs.DocsControl"></activity>
+<activity android:name="com.ytu.google.cloud.picasa.PicasaControl"></activity>
+<activity android:name="com.ytu.google.cloud.onekey.OneKey"></activity>
+<activity android:name="com.ytu.google.cloud.frame.LoginActivity"></activity>
+    </application>
+    
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <!-- 读SD卡信息 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <!-- 读联系人信息 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+    
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <!--  <uses-permission android:name="android.permission.WRITE_SETTINGS" />  READ_OWNER_DATA-->
+    <uses-permission android:name="android.permission.FACTORY_TEST" />
+    <uses-sdk android:minSdkVersion="8" />
+    
+</manifest> 
